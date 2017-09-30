@@ -365,7 +365,6 @@ vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
 -vendor/lib/libdsd2pcm.so;MODULE_SUFFIX=_vendor
 -vendor/lib/libFlacSwDec.so;MODULE_SUFFIX=_vendor
 -vendor/lib/libgpustats.so;MODULE_SUFFIX=_vendor
--vendor/lib/libI420colorconvert.so;MODULE_SUFFIX=_vendor
 -vendor/lib/libmm-color-convertor.so;MODULE_SUFFIX=_vendor
 -vendor/lib/libmmosal_proprietary.so;MODULE_SUFFIX=_vendor
 -vendor/lib/libOmxAacDec.so;MODULE_SUFFIX=_vendor
