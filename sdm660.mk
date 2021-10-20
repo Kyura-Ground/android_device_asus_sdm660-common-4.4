@@ -472,3 +472,6 @@ PRODUCT_PACKAGES += \
 # Peripheral manager compatibility
 PRODUCT_PACKAGES += \
     libutils-v33
+# IMS camera compatibility
+PRODUCT_PACKAGES += \
+    libgui_shim

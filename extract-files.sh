@@ -58,6 +58,11 @@ while [ "${#}" -gt 0 ]; do
             "${PATCHELF}" --print-needed "${2}" | grep -qx libutils-v33.so ||
                 "${PATCHELF}" --add-needed libutils-v33.so "${2}"
             ;;
+        system_ext/lib64/lib-imscamera.so | system_ext/lib64/lib-imsvideocodec.so)
+            [ -z "${2}" ] && return 0
+            "${PATCHELF}" --print-needed "${2}" | grep -qx libgui_shim.so ||
+                "${PATCHELF}" --add-needed libgui_shim.so "${2}"
+            ;;
         *)
             SRC="${1}"
             ;;
