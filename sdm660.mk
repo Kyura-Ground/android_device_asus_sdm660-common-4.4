@@ -13,6 +13,9 @@ $(call inherit-product, vendor/asus/sdm660-common/sdm660-common-vendor.mk)
 # Inherit our signing key
 $(call inherit-product-if-exists, vendor/lineage-priv/keys/keys.mk)
 
+# Non-A/B recovery update support
+$(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
+
 # Default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
 
