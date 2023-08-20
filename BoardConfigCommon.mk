@@ -77,6 +77,9 @@ ODM_MANIFEST_NFC_FILES := $(COMMON_PATH)/manifest_nfc.xml
 # Init
 TARGET_RECOVERY_DEVICE_MODULES := libinit_sdm660
 
+# Lineage Health
+TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
+
 # Media
 TARGET_USES_ION := true
 
