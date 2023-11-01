@@ -53,6 +53,11 @@ while [ "${#}" -gt 0 ]; do
             shift
             CLEAN_VENDOR=false
             ;;
+        vendor/bin/pm-service)
+            [ -z "${2}" ] && return 0
+            "${PATCHELF}" --print-needed "${2}" | grep -qx libutils-v33.so ||
+                "${PATCHELF}" --add-needed libutils-v33.so "${2}"
+            ;;
         *)
             SRC="${1}"
             ;;
