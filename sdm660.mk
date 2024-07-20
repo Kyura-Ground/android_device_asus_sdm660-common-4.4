@@ -95,6 +95,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.charger.enable_suspend=true
 
+# Configstore
+PRODUCT_PACKAGES += \
+    disable_configstore
+
 # Display
 PRODUCT_PACKAGES += \
     gralloc.sdm660 \
