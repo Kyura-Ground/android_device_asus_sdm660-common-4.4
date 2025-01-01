@@ -108,7 +108,7 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     gralloc.sdm660 \
-    hwcomposer.sdm660 \
+    hwcomposer.qcom \
     libdisplayconfig \
     libtinyxml \
     libqdMetaData \
