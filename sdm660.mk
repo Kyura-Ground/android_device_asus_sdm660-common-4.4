@@ -43,6 +43,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libhdmiedid \
     libhfp \
+    libion.vendor \
     libsndmonitor \
     libspkrprot \
     libssrec
