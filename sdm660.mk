@@ -22,6 +22,8 @@ PRODUCT_PACKAGES += \
     fs_config_files
 
 # Audio
+TARGET_EXCLUDES_AUDIOFX := true
+
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.effect@6.0-impl \
