@@ -141,9 +141,6 @@ PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(COMMON_PATH)
 
-# Thermal
-$(call soong_config_set,qti_thermal,netlink,false)
-
 # Treble
 
 # Vendor Security patch level
