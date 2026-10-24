@@ -81,7 +81,7 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        system/lib64/libfm-hci.so | system/lib64/libwfdnative.so | system/lib/libfm-hci.so | system/lib/libwfdnative.so)
+        system_ext/lib64/libfm-hci.so | system_ext/lib64/libwfdnative.so | system_ext/lib/libfm-hci.so | system_ext/lib/libwfdnative.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
             ;;
