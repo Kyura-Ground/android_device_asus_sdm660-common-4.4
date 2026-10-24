@@ -167,8 +167,6 @@
     <!-- Keep chosen default camera app pinned in memory for faster launching -->
     <bool name="config_pinnerCameraApp">true</bool>
 
-    <!-- Should the pinner service pin the Home application? -->
-    <bool name="config_pinnerHomeApp">true</bool>
 
     <!-- Whether the Unprocessed audio source supports the required frequency range and level -->
     <bool name="config_supportAudioSourceUnprocessed">true</bool>
@@ -185,11 +183,7 @@
     <integer name="config_screenBrightnessDoze">17</integer>
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
 
-   <!-- The duration (in milliseconds) for the outgoing sms authorization request to timeout.-->
-   <integer name="config_sms_authorization_timeout_ms">15000</integer>
 
-   <!-- Enable SMS authorization support -->
-   <bool name="config_sms_authorization_enabled">true</bool>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
