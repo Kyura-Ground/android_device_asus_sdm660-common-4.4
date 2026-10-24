@@ -38,7 +38,6 @@
          able to prevent manual operator selection. If false, this SIM setting will be
          ignored and manual operator selection will always be available. See
          CPHS4_2.WW6, CPHS B.4.7.1 for more information -->
-    <bool name="csp_enabled_bool" value="true" />
 
 
     <!-- String indicating the package name of the device ImsService implementation for MMTEL. -->
