@@ -268,6 +268,10 @@ vendor/lib64/vendor.qti.gnss@3.0.so|1c0b41eddcc4789e1ea842be02d511afad123a8e
 vendor/lib64/vendor.qti.gnss@4.0-service.so|04233086636be1aeaaedf88d3126803b0c40c11d
 vendor/lib64/vendor.qti.gnss@4.0.so|e38ae43982dc62bf48193a6c3eb2ae385adb37aa
 
+# MLID socket dependency - TheMuppets/proprietary_vendor_nokia_sdm660-common
+# c61a9b017ae65ee156ba343e07c09881ea209063
+vendor/lib64/libminksocket.so|57dd1ef7283ae755d54479b82d410e7b0d3559f9
+
 # Graphics
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
