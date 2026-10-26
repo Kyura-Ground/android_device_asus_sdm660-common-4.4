@@ -1,0 +1,32 @@
+// Frozen AOSP interface retained for the 32-bit camera HAL. The generated
+// transport is checked in because AOSP 17 removed this package from HIDL's
+// interface allowlist. See README.md for its source and regeneration command.
+
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+cc_library_shared {
+    name: "android.frameworks.displayservice@1.0",
+    defaults: ["hidl-module-defaults"],
+    vendor_available: true,
+    product_available: true,
+    srcs: [
+        "generated/android/frameworks/displayservice/1.0/DisplayEventReceiverAll.cpp",
+        "generated/android/frameworks/displayservice/1.0/DisplayServiceAll.cpp",
+        "generated/android/frameworks/displayservice/1.0/EventCallbackAll.cpp",
+        "generated/android/frameworks/displayservice/1.0/types.cpp",
+    ],
+    export_include_dirs: ["include"],
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
+    export_shared_lib_headers: [
+        "libhidlbase",
+        "libutils",
+    ],
+    min_sdk_version: "29",
+}
