@@ -15,38 +15,40 @@
  * limitations under the License.
  */
 
-#ifndef ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
-#define ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
+#ifndef ASUS_SDM660_AIDL_LIGHT_H
+#define ASUS_SDM660_AIDL_LIGHT_H
 
-#include <android/hardware/light/2.0/ILight.h>
-#include <hidl/Status.h>
+#include <aidl/android/hardware/light/BnLights.h>
 
+#include <cstdint>
 #include <fstream>
+#include <functional>
 #include <mutex>
 #include <unordered_map>
+#include <utility>
+#include <vector>
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace light {
-namespace V2_0 {
 namespace implementation {
 
-struct Light : public ILight {
+struct Light : public BnLights {
     Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight, std::ofstream&& red_blink,
           std::ofstream&& red_led, std::ofstream&& green_blink, std::ofstream&& green_led);
 
-    // Methods from ::android::hardware::light::V2_0::ILight follow.
-    Return<Status> setLight(Type type, const LightState& state) override;
-    Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
+    ndk::ScopedAStatus setLightState(int32_t id, const HwLightState& state) override;
+    ndk::ScopedAStatus getLights(std::vector<HwLight>* lights) override;
 
   private:
-    void setAttentionLight(const LightState& state);
-    void setBatteryLight(const LightState& state);
-    void setButtonsBacklight(const LightState& state);
-    void setLcdBacklight(const LightState& state);
-    void setNotificationLight(const LightState& state);
+    void setAttentionLight(const HwLightState& state);
+    void setBatteryLight(const HwLightState& state);
+    void setButtonsBacklight(const HwLightState& state);
+    void setLcdBacklight(const HwLightState& state);
+    void setNotificationLight(const HwLightState& state);
     void setSpeakerBatteryLightLocked();
-    void setSpeakerLightLocked(const LightState& state);
+    void setSpeakerLightLocked(const HwLightState& state);
 
     std::pair<std::ofstream, uint32_t> mLcdBacklight;
 
@@ -58,18 +60,18 @@ struct Light : public ILight {
     std::ofstream mGreenBlink;
     std::ofstream mGreenLed;
 
-    LightState mAttentionState;
-    LightState mBatteryState;
-    LightState mNotificationState;
+    HwLightState mAttentionState{};
+    HwLightState mBatteryState{};
+    HwLightState mNotificationState{};
 
-    std::unordered_map<Type, std::function<void(const LightState&)>> mLights;
+    std::unordered_map<LightType, std::function<void(const HwLightState&)>> mLights;
     std::mutex mLock;
 };
 
 }  // namespace implementation
-}  // namespace V2_0
 }  // namespace light
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl
 
-#endif  // ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
+#endif  // ASUS_SDM660_AIDL_LIGHT_H

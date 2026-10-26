@@ -15,24 +15,21 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.light@2.0-service.asus_sdm660"
+#define LOG_TAG "android.hardware.light-service.asus_sdm660"
 
 #include <android-base/logging.h>
-#include <hidl/HidlTransportSupport.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
+#include <cerrno>
+#include <cstring>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include <utils/Errors.h>
 
 #include "Light.h"
 
-// libhwbinder:
-using android::hardware::configureRpcThreadpool;
-using android::hardware::joinRpcThreadpool;
-
-// Generated HIDL files
-using android::hardware::light::V2_0::ILight;
-using android::hardware::light::V2_0::implementation::Light;
+using aidl::android::hardware::light::ILights;
+using aidl::android::hardware::light::implementation::Light;
 
 // LCD
 const static std::string kLcdBacklightPath = "/sys/class/leds/lcd-backlight/brightness";
@@ -93,21 +90,21 @@ int main() {
         return -errno;
     }
 
-    android::sp<ILight> service =
-        new Light({std::move(lcdBacklight), lcdMaxBrightness}, std::move(redBlink),
-                  std::move(redLed), std::move(greenBlink), std::move(greenLed));
+    auto service = ndk::SharedRefBase::make<Light>(
+        std::make_pair(std::move(lcdBacklight), lcdMaxBrightness), std::move(redBlink),
+        std::move(redLed), std::move(greenBlink), std::move(greenLed));
 
-    configureRpcThreadpool(1, true);
+    ABinderProcess_setThreadPoolMaxThreadCount(0);
+    const std::string instance = std::string(ILights::descriptor) + "/default";
+    binder_status_t status = AServiceManager_addService(service->asBinder().get(), instance.c_str());
 
-    android::status_t status = service->registerAsService();
-
-    if (status != android::OK) {
+    if (status != STATUS_OK) {
         LOG(ERROR) << "Cannot register Light HAL service";
         return 1;
     }
 
     LOG(INFO) << "Light HAL Ready.";
-    joinRpcThreadpool();
+    ABinderProcess_joinThreadPool();
     // Under normal cases, execution will not reach this line.
     LOG(ERROR) << "Light HAL failed to join thread pool.";
     return 1;
