@@ -53,10 +53,8 @@ BOARD_KERNEL_IMAGE_NAME  := Image.gz-dtb
 
 TARGET_KERNEL_SOURCE := kernel/asus/sdm660
 TARGET_KERNEL_VERSION := 4.4
-TARGET_KERNEL_LLVM_BINUTILS := false
-KERNEL_CC = CC="$(CCACHE_BIN) clang -fdebug-default-version=4"
-TARGET_KERNEL_ADDITIONAL_FLAGS += LLVM_IAS=0 \
-    CLANG_PREFIX32=--prefix=$(KERNEL_TOOLCHAIN_arm)/$(KERNEL_TOOLCHAIN_PREFIX_arm)
+TARGET_KERNEL_CLANG_VERSION := r563880c
+KERNEL_CC = CC="$(KERNEL_CC_WRAPPER) clang -fdebug-default-version=4" LD=ld.lld
 
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
@@ -133,6 +131,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 
 # Sepolicy
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
+include device/lineage/sepolicy/libion/sepolicy.mk
 
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private

@@ -94,10 +94,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.charger.enable_suspend=true
 
-# Configstore
-PRODUCT_PACKAGES += \
-    disable_configstore
-
 # Display
 PRODUCT_PACKAGES += \
     gralloc.sdm660 \
@@ -185,9 +181,13 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
-# Kernel compatibility profile for the Linux 4.4 backport.
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
+# Legacy FCM profiles removed from the Android 17 platform.
 PRODUCT_PACKAGES += \
-    framework_compatibility_matrix.kernel.xml
+    framework_compatibility_matrix.kernel.xml \
+    framework_compatibility_matrix.6.xml
 
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_sdm660)

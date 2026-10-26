@@ -46,7 +46,7 @@
             <value type="tristate">y</value>
         </config>
         <config>
-            <key>CONFIG_KPROBE_EVENT</key>
+            <key>CONFIG_KPROBE_EVENTS</key>
             <value type="tristate">y</value>
         </config>
         <config>

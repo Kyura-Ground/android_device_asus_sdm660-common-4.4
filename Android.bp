@@ -6,6 +6,13 @@ vintf_compatibility_matrix {
     stem: "compatibility_matrix.kernel.xml",
     srcs: ["vintf/compatibility_matrix.kernel.xml"],
 }
+
+vintf_compatibility_matrix {
+    name: "framework_compatibility_matrix.6.xml",
+    stem: "compatibility_matrix.6.xml",
+    srcs: ["vintf/compatibility_matrix.6.xml"],
+}
+
 install_symlink {
     name: "firmware_wlan_mac.bin_symlink",
     vendor: true,
