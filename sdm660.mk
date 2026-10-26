@@ -185,6 +185,10 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
+# Kernel compatibility profile for the Linux 4.4 backport.
+PRODUCT_PACKAGES += \
+    framework_compatibility_matrix.kernel.xml
+
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_sdm660)
 

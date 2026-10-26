@@ -1,0 +1,93 @@
+<!-- Kernel compatibility profile for the X00TD Linux 4.4 backport. -->
+<compatibility-matrix version="1.0" type="framework" level="5">
+    <kernel version="4.4.302">
+        <config>
+            <key>CONFIG_BPF</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_BPF_SYSCALL</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_CGROUP_BPF</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_BPF_JIT</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_BPF_JIT_ALWAYS_ON</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_HAVE_EBPF_JIT</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_BPF_EVENTS</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_BPF_STREAM_PARSER</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_NET_SOCK_MSG</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_STREAM_PARSER</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_PERF_EVENTS</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_KPROBE_EVENT</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_NET_CLS_BPF</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_NET_ACT_BPF</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_NET_SCH_INGRESS</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_MEMBARRIER</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_IPV6</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_NAMESPACES</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_INET</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_MMU</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_CGROUPS</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_SOCK_CGROUP_DATA</key>
+            <value type="tristate">y</value>
+        </config>
+    </kernel>
+</compatibility-matrix>
