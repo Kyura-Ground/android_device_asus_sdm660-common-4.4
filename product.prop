@@ -2,8 +2,6 @@
 ro.bpf.kver_override=5.4.299
 
 # Blur
-persist.sysui.disableBlur=true
-ro.custom.blur.enable=false
 ro.surface_flinger.supports_background_blur=false
 
 # IMS
